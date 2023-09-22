@@ -1,0 +1,740 @@
+/*
+This file contains CSS that aims to adapt the ZK for Bootstrap styles.
+It is important that ZK's "input" components receive the "form-control" class,
+and ZK's "select" components receive the "select-control" class.
+*/
+
+body {
+    padding: 0px;
+}
+
+/* 
+Default font for all ZK components
+Necessary because the default uses Helvetica which has different behavior
+between Firefox and Chrome
+*/
+[class*="z-"]:not([class*="z-icon-"]) {
+    font-family: Arial, sans-serif;
+}
+
+/*
+CSS to improve ZK
+Some ZK components don't look very nice, like shadows on the buttons.
+Here is also teaching how you can change the Grid's visual behavior.
+We also customized ZK's loading, locking the screen with a dark background.
+ */
+
+/* ZK - LABELS */
+.z-label, .z-radio-content, .z-checkbox-content, .z-loading, .z-caption {
+    font-size: inherit!important;
+    line-height: inherit; 
+    font-family: inherit;
+    font-weight: inherit;
+}
+
+/* ZK - WINDOW  */
+.z-window-content{
+    padding: 0px!important;
+    color: inherit;
+    background-color: unset;
+}
+
+.z-window-modal {
+    background-color: #ffffff!important; 
+}
+
+.popup .z-window-content{
+    padding: 1rem!important;
+}
+
+.fundobranco .z-window-content{
+    background-color: #ffffff!important;
+}
+
+/* ZK - BUTTON */
+.z-button {
+    -webkit-box-shadow: unset;
+    box-shadow: unset;
+}
+
+/* ZK - BUTTON */
+.icon-only {
+    background-color: transparent !important; 
+    border-color: transparent !important; 
+    padding: 0px !important; 
+    border: 0px !important; 
+    opacity: 1 !important;
+}
+
+/* ZK - BUTTON */
+.fa-1-1x {
+  font-size: 1.1em !important;
+}
+.fa-1-2x {
+  font-size: 1.2em !important;
+}
+.fa-1-3x {
+  font-size: 1.3em !important;
+}
+.fa-1-4x {
+  font-size: 1.4em !important;
+}
+.fa-1-5x {
+  font-size: 1.5em !important;
+}
+.fa-1-6x {
+  font-size: 1.6em !important;
+}
+.fa-1-7x {
+  font-size: 1.7em !important;
+}
+.fa-1-8x {
+  font-size: 1.8em !important;
+}
+.fa-1-9x {
+  font-size: 1.9em !important;
+}
+.fa-2x {
+  font-size: 2em !important;
+}
+.fa-3x {
+  font-size: 3em !important;
+}
+.fa-4x {
+  font-size: 4em !important;
+}
+.fa-5x {
+  font-size: 5em !important;
+}
+
+
+/* ZK - LOADING */
+.z-loading {
+    display: -moz-box;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    width: 100% !important;
+    min-width: -moz-available !important;          
+    width: -webkit-fill-available !important;  
+    height: 100% !important;
+    min-height: -moz-available !important;
+    height: -webkit-fill-available !important;
+    background-color: unset;
+}
+.z-loading-indicator {
+    border: 1px solid #A0A0A0 !important;
+}
+
+/* ZK - LAYOUT */
+.z-north-body, .z-south-body, .z-west-body, .z-center-body, .z-east-body {
+    padding: 0px !important;
+}
+
+/* ZK - WINDOW */
+.z-window-header {
+    padding: 3px 5px 5px !important;
+}
+
+/* ZK - WINDOW */
+.z-window {
+    background-color: unset; /* original #f9fcff; */
+}
+
+/* ZK - CAPTION */
+.z-caption.iconeDireita .z-caption-content {
+    width: 100%;
+    position: relative;
+}
+
+.z-caption.iconeDireita .z-caption-content i {
+    position: absolute;
+    right: 0px;
+    font-size: 16px;
+}
+
+/* ZK - MENU */
+.z-menu-content i, .z-menuitem-content i {
+    vertical-align: unset !important;
+}
+
+/* ZK - BANDBOX */
+.z-bandbox-popup{
+    width: unset!important;
+}
+.z-bandpopup .z-listbox{
+    width: 100%!important;
+    border: 0px!important;
+    padding: 0px!important;
+}
+.z-bandbox{
+    position: relative;
+    height: auto;
+    display: flex;
+}
+.z-bandbox-input{
+    height: auto;
+    transition: all .2s;
+    display: block;
+    padding: .375rem .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-style: normal;
+    background: #FFFFFF;
+    overflow: visible;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    position: relative;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+    font: 400 13.3333px Arial;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    appearance: textfield;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+}
+.z-bandbox-button{
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    position: relative;
+    margin-left: -1px;
+    z-index: 2;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    color: #6c757d;
+    background-image: none;
+    overflow: visible;
+    border-color: #dcdcdc;
+    margin: 0;
+    font-family: inherit;
+    box-sizing: border-box;
+    height: unset;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #eee;
+}
+.z-bandbox-icon{
+    vertical-align: middle;
+}
+
+/* ZK - TABBOX */
+.z-tabbox{
+    border: 0px;
+}
+.z-tabpanel{
+    border: 0px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.z-tab{
+    padding: 15px;
+    transition: all .2s;
+    font-size: inherit!important;
+}
+.z-tab-selected .z-tab-text {
+    color: #3f6ad8;
+}
+.z-tab-selected {
+    border-bottom: 2px solid #3f6ad8;
+}
+
+/*
+CSS to improve Bootstrap
+ */
+
+/* BOOTSTRAP */
+.input-group {
+    height: calc(1.5em + 0.75rem + 2px);
+}
+
+.btn-group-xs > .btn, .btn-xs {
+    padding  : .25rem .4rem !important;
+    font-size  : 12px !important;
+    line-height  : .5 !important;
+    border-radius : .2rem !important;
+}
+
+.btn-close {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    color: #000 !important;
+    text-shadow: 0 1px 0 #fff !important;
+    opacity: .5 !important;
+    background-color: transparent !important;
+}
+
+.jumbotron {
+    font-size: 10px;
+    padding: 2rem 2rem !important;
+    margin-bottom: 0px !important;
+}
+
+/* BOOTSTRAP - ALERTS */
+.alert-warning-light{
+    border-color: #ffac00!important;
+}
+.alert-danger-light{
+    border-color: #f5c6cb!important;
+}
+.alert-info-light{
+    border-color: #bee5eb!important;
+}
+.alert-success-light{
+    border-color: #c3e6cb!important;
+}
+
+/* BOOTSTRAP - BUTTONS */
+.btn-link:hover{
+    background-color: unset;
+}
+.btn-primary:focus{
+    background-color: #2955c8;
+}
+.btn-secondary:focus{
+    background-color: #5a6268;
+}
+.btn-success:focus{
+    background-color: #31a66a;
+}
+.btn-info:focus{
+    background-color: #0098ef;
+}
+.btn-warning:focus{
+    background-color: #eca909;
+}
+.btn-danger:focus{
+    background-color: #b81f44;
+}
+.btn-light:focus{
+    color: #212529;
+    background-color: #dbdbdb;
+}
+.btn-dark:focus{
+    background-color: #23272b;
+}
+.btn-link:focus{
+    color: #3f6ad8;
+    border-color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+/*
+CSS to adapt certain ZK elements to accept Bootstrap
+ */
+
+.z-textbox, .z-decimalbox, .z-intbox, .z-longbox, .z-doublebox {
+    /*min-height: 30px!important;*/
+    height: unset;
+}
+
+/* BOOTSTRAPPING THE ZK - READONLY */
+.z-textbox[readonly], .z-decimalbox[readonly], .z-intbox[readonly], .z-longbox[readonly], .z-doublebox[readonly] {
+    color: #495057;
+}
+
+/* BOOTSTRAPPING THE ZK - RADIO */
+input[type="radio"], input[type="checkbox"] {
+    margin: 0 4px 2px 4px !important;
+}
+
+.z-radio-content {
+    margin-bottom: 0 !important;
+}
+
+/* BOOTSTRAPPING THE ZK - COMBOBOX */
+.z-combobox {
+    height: calc(1.5em + .75rem + 2px) !important;
+}
+.z-combobox-input {
+    padding: 0.375rem 0.75rem;
+    font-size: .88rem!important;
+    height: calc(1.5em + .75rem + 2px) !important;
+    border: 1px solid #d9d9d9 !important;
+    margin: 0 !important;
+    line-height: 14px !important;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.z-combobox-input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.z-combobox-input:disabled {
+    color: #acacac !important;
+    background: #e9ecef !important;
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+    cursor: not-allowed !important;
+}
+
+.z-combobox-popup {
+    max-height: 200px !important;
+}
+
+.z-combobox .z-combobox-button {
+    border: none;
+    right: 25px;
+}
+
+.z-combobox-input:focus+.z-combobox-button {
+    border-left: 0px;
+}
+
+.z-combobox-button:hover {
+    border-color: unset;
+    background: unset;
+}
+
+/* BOOTSTRAPPING THE ZK EE - CHOSENBOX */
+.z-chosenbox {
+    height: auto!important;
+}
+
+.z-chosenbox-input {
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 1px 4px 2px 0px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.z-chosenbox-item{
+    display: inline-flex;
+    align-items: center;
+    margin: 0px 4px 0px 0px !important;
+    border: 1px solid #ced4da;
+    background-color: #f8f9fa;
+}
+
+.z-chosenbox-item-content{
+    color: #495057 !important;
+    font-size: 0.88rem;
+    padding: 0 4px;
+}
+
+.z-chosenbox-button{
+    display: inline-flex;
+    align-items: center;
+    margin: 2px 0px 0px 0px !important;
+    color: #495057 !important;
+}
+
+.z-chosenbox-focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.z-chosenbox-disabled {
+    color: #acacac !important;
+    background: #e9ecef !important;
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+    cursor: not-allowed !important;
+}
+
+.z-chosenbox-select {
+    font-size: .88rem!important;
+}
+
+/* BOOTSTRAPPING THE ZK - SELECTBOX */
+.z-select:disabled, .z-selectbox:disabled {
+    color: #acacac !important;
+    background: #e9ecef !important;
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+    cursor: not-allowed !important;
+}
+
+/* BOOTSTRAPPING THE ZK - CHECKBOX */
+input[type="checkbox"]{
+    border: 1px solid #ced4da!important;
+}
+input[type="checkbox"]:checked {
+    background-color: #3f6ad8!important;
+}
+
+/* BOOTSTRAPPING THE ZK - DATE */
+.z-datebox {
+    height: calc(1.5em + .75rem + 2px) !important;
+}
+.z-datebox-input {
+    height: calc(1.5em + .75rem + 2px) !important;
+    border: 1px solid #d9d9d9 !important;
+    margin: 0 !important;
+    line-height: 14px !important;
+    background: #fff !important;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    -o-border-radius: 4px 0 0 4px;
+    -ms-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px; 
+}
+.z-datebox-button {
+    /*height: calc(1.5em + .50rem) !important;*/
+    height: calc(1.5em + 0rem + 5px) !important;
+    margin-left: -15px;
+    width: 40px;
+    -webkit-border-top-right-radius: 4px !important;
+    -webkit-border-bottom-right-radius: 4px !important;
+    -moz-border-radius-topright: 4px !important;
+    -moz-border-radius-bottomright: 4px !important;
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+    -webkit-border-top-left-radius: 0px !important;
+    -webkit-border-bottom-left-radius: 0px !important;
+    -moz-border-radius-topleft: 0px !important;
+    -moz-border-radius-bottomleft: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+.z-datebox-input  {
+    color: #495057;
+    padding: 0.375rem 0.75rem;
+}
+.z-datebox-icon {
+    padding-top: 2px;
+}
+.z-datebox-input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.z-datebox-readonly>input {
+    color: rgba(0,0,0,0.9)!important;
+    background: #F2F2F2!important;
+}
+
+.z-calendar-wheel-left{
+    position: relative;
+    transition: color 0.15s,background-color 0.15s,border-color 0.15s,box-shadow 0.15s;
+    outline: none !important;
+    display: inline-block;
+    font-weight: 400;
+    color: #495057;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+    
+    color: #fff;
+    background-color: #3f6ad8;
+    border-color: #3f6ad8;
+}
+
+.z-calendar-wheel-right{
+    position: relative;
+    transition: color 0.15s,background-color 0.15s,border-color 0.15s,box-shadow 0.15s;
+    outline: none !important;
+    display: inline-block;
+    font-weight: 400;
+    color: #495057;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+    
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+/* BOOTSTRAPPING THE ZK - INPUTS MOBILE */
+@media(max-width:576px){
+    .z-combobox-button, .z-bandbox-button, .z-datebox-button, .z-timebox-button, .z-spinner-button, .z-doublespinner-button, .z-timepicker-button {
+        padding-bottom: 28px;
+
+    }
+}
+
+/* BOOTSTRAPPING THE ZK - GROUPBOX */
+
+.z-groupbox-header{
+    border-color: #ddd!important;
+    border-top-right-radius:  4px;
+    border-top-left-radius: 4px;
+}
+
+.z-groupbox-content{
+    border-color: #ddd!important;
+    border-bottom-right-radius:  4px;
+    border-bottom-left-radius: 4px;
+}
+
+/*
+Customized CSS ZK forms to behave similar to Bootstrap
+ */
+
+/* FORM */
+.form {  
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+.form-group  {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+.form-label{
+    display: inline-block;
+    font-weight: 700;
+}
+.label-right{
+    text-align: right;
+}
+@media(max-width:575px){
+    .label-right{
+        text-align: left;
+    }
+}
+span.required:after {
+    content: " ⃰"; 
+    color: #721c24;
+}
+
+/* ZK - GRID */
+.z-listheader-content {
+    font-size: .88rem;
+}
+
+.z-listcell-content, .z-listgroup-content, .z-listgroupfoot-content, .z-listfooter-content, .z-column-content {
+    font-size: .88rem;
+    color: #495057;
+}
+
+.z-column-sort .z-column-content:active {
+    background: #fffff!important;
+}
+
+.z-column-sort .z-column-content:hover {
+    background: #e0f3ff;
+}
+
+.z-column-sort .z-column-sorticon {
+    color: #495057;
+}
+
+.z-column-hover .z-column-content {
+    color: #495057;
+}
+
+.z-grid {
+    border: 0px;
+}
+.z-column {
+    background-color: white;
+    border-left: 0px solid #dee2e6;
+    border-bottom: 1px solid currentColor;
+}
+.z-column-visited .z-column-button {
+    background: #dee2e6;
+}
+.z-column-content {
+    color: inherit;
+    font-weight: bold;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.z-columns-bar {
+    background: white;
+    border-left: 0px solid #dee2e6;
+    border-bottom: 0px solid #dee2e6;
+}
+.z-column-button {
+    z-index: 0!important;
+    color: inherit;
+    -webkit-box-shadow: inset 0px 0 #dee2e6;
+    -moz-box-shadow: inset 0px 0 #dee2e6;
+    -o-box-shadow: inset 0px 0 #dee2e6;
+    -ms-box-shadow: inset 0px 0 #dee2e6;
+    box-shadow: inset 0px 0 #dee2e6;
+}
+.z-column-button > .z-icon-caret-down {
+    padding-top: 0.5rem;
+}
+
+.z-column-content, .z-row-content, .z-group-content, .z-groupfoot-content, .z-footer-content, .z-auxheader-content {
+    line-height: unset!important;
+}
+
+.z-paging {
+    background-color: white!important;
+}
+
+.z-paging-info{
+    padding: 2px 0!important;
+}
+
+/* ZK - GRID - USE THIS CLASS TO MAKE RESPONSIVE WITH HORIZONTAL SCROLLBAR */
+.responsive-grid-sm, .responsive-grid-md, .responsive-grid-lg {
+    overflow:auto;
+}
+
+.responsive-grid-sm > .z-grid {
+    min-width: 500px;
+}
+
+.responsive-grid-md > .z-grid {
+    min-width: 700px;
+}
+
+.responsive-grid-lg > .z-grid {
+    min-width: 900px;
+}
+
