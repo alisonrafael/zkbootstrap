@@ -1,114 +1,130 @@
 /*
-This file contains CSS that aims to adapt the ZK for Bootstrap styles.
-It is important that ZK's "input" components receive the "form-control" class,
-and ZK's "select" components receive the "select-control" class.
+Este arquivo contém alguns ajustes para que os componentes ZK fiquem com 
+a "cara" do Bootstrap, ou seja, este arquivo contém CSS que visa adaptar
+o ZK para os estilos do Bootstrap.
+
+Importante que os componentens "input" do ZK recebam a classe "form-control",
+e os componentes "select" do ZK recebam a classe "select-control".
+
+Caso algum compoenente não fique no mesmo padrão que os outros, ou tenha algum
+problema com os estilos CSS, fale com o Alison para tentar resolver.
 */
 
+
+/* BODY - REMOVE O PADDING DA PÁGINA QUE O ZK COLOCA E COLOCA O TAMANHO DA FONTE AO PADRÃO ZK */
 body {
     padding: 0px;
+    background-color: var(--bs-tertiary-bg); /* aqui a COR DE FUNDO do site está CINZA, você pode mudar se desejar */
+
 }
 
-/* 
-Default font for all ZK components
-Necessary because the default uses Helvetica which has different behavior
-between Firefox and Chrome
-*/
+/* Fonte padrão para todos os componentes ZK 
+Necessário pois o padrão usa Helvetica o qual tem comportamento diferente
+entre Firefox e Chrome */
 [class*="z-"]:not([class*="z-icon-"]) {
-    font-family: Arial, sans-serif;
+    font-family: inherit;
 }
+
 
 /*
-CSS to improve ZK
-Some ZK components don't look very nice, like shadows on the buttons.
-Here is also teaching how you can change the Grid's visual behavior.
-We also customized ZK's loading, locking the screen with a dark background.
+ * CSS para melhorar o ZK
+ * 
+ * Alguns componentes do ZK tem um visual não muito legal, como sombra nos botões.
+ * Aqui também está ensinando como você pode alterar o comportamento do visual do Grid.
+ * Personalizamos também o loading do ZK, travando a tela com um fundo escuro.
  */
 
-/* ZK - LABELS */
+/* ZK - LABELS - REMOVE PADROES ZK PARA MANTER DO BOOTSTRAP */
 .z-label, .z-radio-content, .z-checkbox-content, .z-loading, .z-caption {
     font-size: inherit!important;
-    line-height: inherit; 
+    line-height: inherit;
     font-family: inherit;
     font-weight: inherit;
 }
 
-/* ZK - WINDOW  */
+/* ZK - WINDOW - REMOVE PADDING E COR DO ZK */
 .z-window-content{
     padding: 0px!important;
     color: inherit;
-    background-color: unset;
 }
 
 .z-window-modal {
-    background-color: #ffffff!important; 
+    background-color: #ffffff!important; /*essa cor é para os Alerts Popup*/
 }
 
-.popup .z-window-content{
+.z-window-modal .z-window-content{
+    background-color: var(--bs-body-bg)!important; /*essa cor é para os Alerts Popup*/
+}
+
+.z-window-modal{
+    transition: opacity .15s linear;
+    -webkit-border-radius: 1.25em!important;
+    -moz-border-radius: 1.25em!important;
+    -o-border-radius: 1.25em!important;
+    -ms-border-radius: 1.25em!important;
+    border-radius: 1.25em!important;
     padding: 1rem!important;
 }
 
-.fundobranco .z-window-content{
-    background-color: #ffffff!important;
-}
-
-/* ZK - BUTTON */
+/* ZK - BUTTON - TIRAR A SOMBRA DO BOTÃO DO TEMA ICEBLUE */
 .z-button {
     -webkit-box-shadow: unset;
     box-shadow: unset;
 }
 
-/* ZK - BUTTON */
+/* ZK - BUTTON - CORRIGE ALINHAMENTO DO ÍCONE FONTAWOSOME NO BOTÃO */
 .icon-only {
-    background-color: transparent !important; 
-    border-color: transparent !important; 
-    padding: 0px !important; 
-    border: 0px !important; 
+    background-color: transparent !important;
+    border-color: transparent !important;
+    padding: 0px !important;
+    border: 0px !important;
     opacity: 1 !important;
 }
 
-/* ZK - BUTTON */
+/* ZK - BUTTON - MELHORIA DE TAMANHOS DO FONTAWESOME */
 .fa-1-1x {
-  font-size: 1.1em !important;
+    font-size: 1.1em !important;
 }
 .fa-1-2x {
-  font-size: 1.2em !important;
+    font-size: 1.2em !important;
 }
 .fa-1-3x {
-  font-size: 1.3em !important;
+    font-size: 1.3em !important;
 }
 .fa-1-4x {
-  font-size: 1.4em !important;
+    font-size: 1.4em !important;
 }
 .fa-1-5x {
-  font-size: 1.5em !important;
+    font-size: 1.5em !important;
 }
 .fa-1-6x {
-  font-size: 1.6em !important;
+    font-size: 1.6em !important;
 }
 .fa-1-7x {
-  font-size: 1.7em !important;
+    font-size: 1.7em !important;
 }
 .fa-1-8x {
-  font-size: 1.8em !important;
+    font-size: 1.8em !important;
 }
 .fa-1-9x {
-  font-size: 1.9em !important;
+    font-size: 1.9em !important;
 }
 .fa-2x {
-  font-size: 2em !important;
+    font-size: 2em !important;
 }
 .fa-3x {
-  font-size: 3em !important;
+    font-size: 3em !important;
 }
 .fa-4x {
-  font-size: 4em !important;
+    font-size: 4em !important;
 }
 .fa-5x {
-  font-size: 5em !important;
+    font-size: 5em !important;
 }
 
 
-/* ZK - LOADING */
+
+/* ZK - LOADING - DEIXANDO EM TELA CHEIA */
 .z-loading {
     display: -moz-box;
     -moz-box-pack: center;
@@ -117,8 +133,8 @@ We also customized ZK's loading, locking the screen with a dark background.
     -webkit-box-pack: center;
     -webkit-box-align: center;
     width: 100% !important;
-    min-width: -moz-available !important;          
-    width: -webkit-fill-available !important;  
+    min-width: -moz-available !important;
+    width: -webkit-fill-available !important;
     height: 100% !important;
     min-height: -moz-available !important;
     height: -webkit-fill-available !important;
@@ -128,22 +144,28 @@ We also customized ZK's loading, locking the screen with a dark background.
     border: 1px solid #A0A0A0 !important;
 }
 
-/* ZK - LAYOUT */
+/* ZK - LAYOUT - REMOVENDO ESPAÇO EXTRA*/
 .z-north-body, .z-south-body, .z-west-body, .z-center-body, .z-east-body {
     padding: 0px !important;
 }
 
-/* ZK - WINDOW */
+/* ZK - WINDOW - MELHORANDO ALINHAMENTO DO TEXTO DO TÍTULO DA JANELA */
 .z-window-header {
-    padding: 3px 5px 5px !important;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: var(--bs-body-font-size);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--bs-heading-color);
+    opacity: 0.5 !important;
 }
 
-/* ZK - WINDOW */
+/* ZK - WINDOW - ALTERANDO COR DE FUNDO */
 .z-window {
     background-color: unset; /* original #f9fcff; */
 }
 
-/* ZK - CAPTION */
+/* ZK - CAPTION - COLOCANDO ÍCONE A DIREITA*/
 .z-caption.iconeDireita .z-caption-content {
     width: 100%;
     position: relative;
@@ -155,7 +177,7 @@ We also customized ZK's loading, locking the screen with a dark background.
     font-size: 16px;
 }
 
-/* ZK - MENU */
+/* ZK - MENU - CORRIGINDO ALINHAMENTO DO ÍCONE */
 .z-menu-content i, .z-menuitem-content i {
     vertical-align: unset !important;
 }
@@ -264,14 +286,18 @@ We also customized ZK's loading, locking the screen with a dark background.
 }
 
 /*
-CSS to improve Bootstrap
+ * CSS para melhorar o Bootstrap
+ * 
+ * Alguns elementos faltantes no bootstrap como alertas apenas com borda.
+ * Temos também botões extra-small para o caso de ficar melhor com os elementos pequenos do ZK.
  */
 
-/* BOOTSTRAP */
+/* BOOTSTRAP - CSS PARA INPUT-GROUP FICAR COM BOTÃO DA MESMA ALTURA DO CAMPO INPUT */
 .input-group {
     height: calc(1.5em + 0.75rem + 2px);
 }
 
+/* BOOTSTRAP - CSS PARA BOTÃO EXTRA-SMALL QUE NÃO TEM NO BOOTSTRAP 4 */
 .btn-group-xs > .btn, .btn-xs {
     padding  : .25rem .4rem !important;
     font-size  : 12px !important;
@@ -279,23 +305,19 @@ CSS to improve Bootstrap
     border-radius : .2rem !important;
 }
 
+/* BOOTSTRAP - CRIADO CSS PARA BOTÃO ESTILO CLOSE  QUE NÃO TEM NO BOOTSTRAP */
 .btn-close {
-    font-size: 1.5rem !important;
-    font-weight: 700 !important;
-    line-height: 1 !important;
-    color: #000 !important;
-    text-shadow: 0 1px 0 #fff !important;
-    opacity: .5 !important;
-    background-color: transparent !important;
+    min-height: unset;
 }
 
+/* BOOTSTRAP - CORREÇÃO DA FONTE E ESPAÇAMENTO DO JUMBOTRON */
 .jumbotron {
     font-size: 10px;
     padding: 2rem 2rem !important;
     margin-bottom: 0px !important;
 }
 
-/* BOOTSTRAP - ALERTS */
+/* BOOTSTRAP - OPÇÃO EXTRA DE ALERTA */
 .alert-warning-light{
     border-color: #ffac00!important;
 }
@@ -309,44 +331,21 @@ CSS to improve Bootstrap
     border-color: #c3e6cb!important;
 }
 
-/* BOOTSTRAP - BUTTONS */
-.btn-link:hover{
-    background-color: unset;
-}
-.btn-primary:focus{
-    background-color: #2955c8;
-}
-.btn-secondary:focus{
-    background-color: #5a6268;
-}
-.btn-success:focus{
-    background-color: #31a66a;
-}
-.btn-info:focus{
-    background-color: #0098ef;
-}
-.btn-warning:focus{
-    background-color: #eca909;
-}
-.btn-danger:focus{
-    background-color: #b81f44;
-}
-.btn-light:focus{
-    color: #212529;
-    background-color: #dbdbdb;
-}
-.btn-dark:focus{
-    background-color: #23272b;
-}
-.btn-link:focus{
-    color: #3f6ad8;
-    border-color: #fff;
-    text-decoration: none;
-    background-color: transparent;
+/* BOOTSTRAP - COR DOS BOTÕES QUANDO ESTÃO COM FOCO */
+.z-button:focus {
+    color:var(--bs-btn-hover-color);
+    background-color:var(--bs-btn-hover-bg);
+    border-color:var(--bs-btn-hover-border-color);
+    outline:0;
+    box-shadow:var(--bs-btn-focus-box-shadow)
 }
 
 /*
-CSS to adapt certain ZK elements to accept Bootstrap
+ * CSS para adaptar determinados elementos do ZK para aceitar o Bootstrap
+ * 
+ * Alguns elementos do ZK não utilizam as tags padrões do HTML. Com estes ajustes
+ * fazemos com que esses elementos personalizados do ZK fiquem com o mesmo estilo que o Bootstrap
+ * aplica nos componentes correspondentes ao que tem HTML puro.
  */
 
 .z-textbox, .z-decimalbox, .z-intbox, .z-longbox, .z-doublebox {
@@ -354,12 +353,12 @@ CSS to adapt certain ZK elements to accept Bootstrap
     height: unset;
 }
 
-/* BOOTSTRAPPING THE ZK - READONLY */
+/* BOOTSTRAPANDO O ZK - READONLY - CORRIGINGO COR DA FONTE PARA FICAR IGUAL AO BOOTSTRAP */
 .z-textbox[readonly], .z-decimalbox[readonly], .z-intbox[readonly], .z-longbox[readonly], .z-doublebox[readonly] {
     color: #495057;
 }
 
-/* BOOTSTRAPPING THE ZK - RADIO */
+/* BOOTSTRAPANDO O ZK - CORREÇÃO DO RADIO */
 input[type="radio"], input[type="checkbox"] {
     margin: 0 4px 2px 4px !important;
 }
@@ -368,7 +367,7 @@ input[type="radio"], input[type="checkbox"] {
     margin-bottom: 0 !important;
 }
 
-/* BOOTSTRAPPING THE ZK - COMBOBOX */
+/* BOOTSTRAPANDO O ZK - COMBOBOX - ADICIONANDO ESTILO */
 .z-combobox {
     height: calc(1.5em + .75rem + 2px) !important;
 }
@@ -421,12 +420,14 @@ input[type="radio"], input[type="checkbox"] {
     background: unset;
 }
 
-/* BOOTSTRAPPING THE ZK EE - CHOSENBOX */
+/* BOOTSTRAPANDO O ZK EE - CHOSENBOX - ADICIONANDO ESTILO */
 .z-chosenbox {
     height: auto!important;
 }
 
 .z-chosenbox-input {
+    height: auto;
+    line-height: 0;
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
@@ -446,7 +447,7 @@ input[type="radio"], input[type="checkbox"] {
 
 .z-chosenbox-item-content{
     color: #495057 !important;
-    font-size: 0.88rem;
+    font-size: var(--bs-body-font-size);
     padding: 0 4px;
 }
 
@@ -477,16 +478,29 @@ input[type="radio"], input[type="checkbox"] {
     font-size: .88rem!important;
 }
 
-/* BOOTSTRAPPING THE ZK - SELECTBOX */
+/* BOOTSTRAPANDO O ZK - SELECT - ADICIONANDO ESTILO */
+.z-select, .z-selectbox {
+    /*height: 30px !important;*/
+    /*padding: 3px 3px;*/
+    /*border: 1px solid #ced4da !important;*/
+    /*margin: 0 !important;*/
+    /*line-height: 14px !important;*/
+    /*background: #fff !important;*/
+    /*-webkit-border-radius: 4px 4px 4px 4px;*/
+    /*-moz-border-radius: 4px 4px 4px 4px;*/
+    /*-o-border-radius: 4px 4px 4px 4px;*/
+    /*-ms-border-radius: 4px 4px 4px 4px;*/
+    /*border-radius: 4px 4px 4px 4px;*/
+}
 .z-select:disabled, .z-selectbox:disabled {
     color: #acacac !important;
-    background: #e9ecef !important;
-    opacity: 1 !important;
-    filter: alpha(opacity=100) !important;
-    cursor: not-allowed !important;
+    /*background: #e9ecef !important;*/
+    /*opacity: 1 !important;*/
+    /*filter: alpha(opacity=100) !important;*/
+    /*cursor: not-allowed !important;*/
 }
 
-/* BOOTSTRAPPING THE ZK - CHECKBOX */
+/* BOOTSTRAPANDO O ZK - CHECKBOX - ADICIONANDO ESTILO */
 input[type="checkbox"]{
     border: 1px solid #ced4da!important;
 }
@@ -494,33 +508,38 @@ input[type="checkbox"]:checked {
     background-color: #3f6ad8!important;
 }
 
-/* BOOTSTRAPPING THE ZK - DATE */
-.z-datebox {
+/* BOOTSTRAPANDO O ZK - DATE - ADICIONANDO ESTILO */
+.z-datebox, .z-timebox {
     height: calc(1.5em + .75rem + 2px) !important;
 }
-.z-datebox-input {
+.form-control.z-datebox, .form-control.z-timebox {
+    padding: unset;
+    border: unset;
+}
+.z-datebox-input:focus+.z-datebox-button, .z-timebox-input:focus+.z-timebox-button {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+}
+.z-datebox-input, .z-timebox-input {
     height: calc(1.5em + .75rem + 2px) !important;
-    border: 1px solid #d9d9d9 !important;
+    border: var(--bs-border-width) solid var(--bs-border-color) !important;
+    border-radius: var(--bs-border-radius);
     margin: 0 !important;
     line-height: 14px !important;
-    background: #fff !important;
-    -webkit-border-radius: 4px 0 0 4px;
-    -moz-border-radius: 4px 0 0 4px;
-    -o-border-radius: 4px 0 0 4px;
-    -ms-border-radius: 4px 0 0 4px;
-    border-radius: 4px 0 0 4px; 
+    background: var(--bs-body-bg) !important;
 }
 .z-datebox-button {
-    /*height: calc(1.5em + .50rem) !important;*/
     height: calc(1.5em + 0rem + 5px) !important;
     margin-left: -15px;
     width: 40px;
-    -webkit-border-top-right-radius: 4px !important;
-    -webkit-border-bottom-right-radius: 4px !important;
-    -moz-border-radius-topright: 4px !important;
-    -moz-border-radius-bottomright: 4px !important;
-    border-top-right-radius: 4px !important;
-    border-bottom-right-radius: 4px !important;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border-color: var(--bs-border-color);
+    -webkit-border-top-right-radius: var(--bs-border-radius) !important;
+    -webkit-border-bottom-right-radius: var(--bs-border-radius) !important;
+    -moz-border-radius-topright: var(--bs-border-radius) !important;
+    -moz-border-radius-bottomright: var(--bs-border-radius) !important;
+    border-top-right-radius: var(--bs-border-radius) !important;
+    border-bottom-right-radius: var(--bs-border-radius) !important;
     -webkit-border-top-left-radius: 0px !important;
     -webkit-border-bottom-left-radius: 0px !important;
     -moz-border-radius-topleft: 0px !important;
@@ -528,25 +547,50 @@ input[type="checkbox"]:checked {
     border-top-left-radius: 0px !important;
     border-bottom-left-radius: 0px !important;
 }
-.z-datebox-input  {
-    color: #495057;
+.z-datebox-input, .z-timebox-input  {
+    color: var(--bs-body-color);
     padding: 0.375rem 0.75rem;
 }
 .z-datebox-icon {
     padding-top: 2px;
 }
-.z-datebox-input:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #80bdff !important;
+.z-datebox-input:focus, .z-timebox-input:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border: var(--bs-border-width) solid var(--bs-border-color) !important;
     outline: 0 !important;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
-.z-datebox-readonly>input {
+.z-datebox-readonly>input, .z-timebox-readonly>input {
     color: rgba(0,0,0,0.9)!important;
     background: #F2F2F2!important;
 }
 
+.z-timebox-button {
+    height: auto;
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-border-color);
+    padding: unset;
+    font-size: 18px!important;
+}
+
+.z-timebox-separator {
+    margin-top: 2px;
+}
+
+.z-timebox-button>a {
+    height: 18px;
+    color: var(--bs-body-color);
+}
+
+[data-bs-theme=dark] {
+    .z-calendar-header {
+        filter: invert(1);
+    }
+    .z-calendar td, .z-calendar th {
+        filter: invert(1);
+    }
+}
 .z-calendar-wheel-left{
     position: relative;
     transition: color 0.15s,background-color 0.15s,border-color 0.15s,box-shadow 0.15s;
@@ -564,7 +608,7 @@ input[type="checkbox"]:checked {
     line-height: 1.5;
     border-radius: 0.25rem;
     transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
-    
+
     color: #fff;
     background-color: #3f6ad8;
     border-color: #3f6ad8;
@@ -587,21 +631,21 @@ input[type="checkbox"]:checked {
     line-height: 1.5;
     border-radius: 0.25rem;
     transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
-    
+
     color: #fff;
     background-color: #6c757d;
     border-color: #6c757d;
 }
 
-/* BOOTSTRAPPING THE ZK - INPUTS MOBILE */
+/* BOOTSTRAPANDO O ZK - CORRIGINDO INPUTS EM MOBILE */
 @media(max-width:576px){
-    .z-combobox-button, .z-bandbox-button, .z-datebox-button, .z-timebox-button, .z-spinner-button, .z-doublespinner-button, .z-timepicker-button {
+    .z-combobox-button, .z-bandbox-button, .z-datebox-button, .z-spinner-button, .z-doublespinner-button, .z-timepicker-button {
         padding-bottom: 28px;
 
     }
 }
 
-/* BOOTSTRAPPING THE ZK - GROUPBOX */
+/* BOOTSTRAPANDO O ZK - GROUPBOX - ADICIONANDO ESTILO IGUAL O PANEL DO BOOTSTRAP */
 
 .z-groupbox-header{
     border-color: #ddd!important;
@@ -616,11 +660,14 @@ input[type="checkbox"]:checked {
 }
 
 /*
-Customized CSS ZK forms to behave similar to Bootstrap
+ * CSS personalizado os formulários do ZK para se comportar semelhante ao do Bootstrap
+ * 
+ * Para criar formulários com Label e Input, utilize as classes abaixo. Com isso você
+ * conseguirá deixar o formulário responsivo mais facilmente.
  */
 
-/* FORM */
-.form {  
+/* FORMULÁRIO - CSS PARA FORMULARIO HTML */
+.form {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -644,84 +691,35 @@ Customized CSS ZK forms to behave similar to Bootstrap
     }
 }
 span.required:after {
-    content: " ⃰"; 
+    content: " ⃰";
     color: #721c24;
 }
 
-/* ZK - GRID */
-.z-listheader-content {
-    font-size: .88rem;
+/* ZK - GRID - FONTE DAS LINHAS DA TABELA */
+.z-listcell-content, .z-listgroup-content, .z-listgroupfoot-content, .z-listfooter-content, .z-column-content, .z-listheader-content {
+    /*font-size: .88rem;*/
+    color: var(--bs-body-color);
 }
 
-.z-listcell-content, .z-listgroup-content, .z-listgroupfoot-content, .z-listfooter-content, .z-column-content {
-    font-size: .88rem;
-    color: #495057;
+/* ZK - GRID - CORES DA ORDENAÇÃO NO HEADER */
+.z-column-sort .z-column-content:active, .z-listheader-sort .z-listheader-content:active {
+    background: var(--bs-body-bg)!important;
+    color: var(--bs-body-color)!important;
 }
 
-.z-column-sort .z-column-content:active {
-    background: #fffff!important;
+.z-column-sort .z-column-content:hover, .z-listheader-sort .z-listheader-content:hover {
+    background: var(--bs-table-hover-color);
 }
 
-.z-column-sort .z-column-content:hover {
-    background: #e0f3ff;
+.z-column-sort .z-column-sorticon, .z-listheader-sort .z-listheader-sorticon {
+    color: var(--bs-body-color);
 }
 
-.z-column-sort .z-column-sorticon {
-    color: #495057;
+.z-column-hover .z-column-content, .z-listheader-hover .z-listheader-content {
+    color: var(--bs-body-color);
 }
 
-.z-column-hover .z-column-content {
-    color: #495057;
-}
-
-.z-grid {
-    border: 0px;
-}
-.z-column {
-    background-color: white;
-    border-left: 0px solid #dee2e6;
-    border-bottom: 1px solid currentColor;
-}
-.z-column-visited .z-column-button {
-    background: #dee2e6;
-}
-.z-column-content {
-    color: inherit;
-    font-weight: bold;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-.z-columns-bar {
-    background: white;
-    border-left: 0px solid #dee2e6;
-    border-bottom: 0px solid #dee2e6;
-}
-.z-column-button {
-    z-index: 0!important;
-    color: inherit;
-    -webkit-box-shadow: inset 0px 0 #dee2e6;
-    -moz-box-shadow: inset 0px 0 #dee2e6;
-    -o-box-shadow: inset 0px 0 #dee2e6;
-    -ms-box-shadow: inset 0px 0 #dee2e6;
-    box-shadow: inset 0px 0 #dee2e6;
-}
-.z-column-button > .z-icon-caret-down {
-    padding-top: 0.5rem;
-}
-
-.z-column-content, .z-row-content, .z-group-content, .z-groupfoot-content, .z-footer-content, .z-auxheader-content {
-    line-height: unset!important;
-}
-
-.z-paging {
-    background-color: white!important;
-}
-
-.z-paging-info{
-    padding: 2px 0!important;
-}
-
-/* ZK - GRID - USE THIS CLASS TO MAKE RESPONSIVE WITH HORIZONTAL SCROLLBAR */
+/* ZK - GRID - DEIXANDO RESPONSIVO, MAS COM BARRA DE ROLAGEM HORIZONTAL A PARTIR DE DETERMINADA LARGURA */
 .responsive-grid-sm, .responsive-grid-md, .responsive-grid-lg {
     overflow:auto;
 }
@@ -738,3 +736,97 @@ span.required:after {
     min-width: 900px;
 }
 
+.responsive-grid-sm > .z-listbox {
+    min-width: 500px;
+}
+
+.responsive-grid-md > .z-listbox {
+    min-width: 700px;
+}
+
+.responsive-grid-lg > .z-listbox {
+    min-width: 900px;
+}
+
+/* ZK EE - GRID DATAILS - DIMINUINDO PADGIND DA FLECHA DETALHES */
+
+
+/* ZK - LIST */
+.z-listitem.z-listitem-selected>.z-listcell>.z-listcell-content {
+
+}
+
+/* FORMULÁRIO - CSS PARA TABELAS / GRID - ESTILO SEMELHANTE AO BOOTSTRAP*/
+.z-grid, .z-listbox {
+    border: 0px;
+    background: var(--bs-body-bg);
+}
+.z-column, .z-listheader {
+    background-color: var(--bs-body-bg);
+    border-left: 0px solid #dee2e6;
+    border-bottom: 1px solid currentColor;
+}
+.z-column-visited .z-column-button {
+    background: #dee2e6;
+}
+.z-column-content, .z-listheader-content {
+    color: var(--bs-body-color);
+    font-weight: bold;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.z-columns-bar, .z-listhead-bar {
+    background: var(--bs-body-bg);
+    border-left: 0px solid #dee2e6;
+    border-bottom: 0px solid #dee2e6;
+}
+.z-column-button {
+    z-index: 0!important;
+    color: var(--bs-body-color);
+    -webkit-box-shadow: inset 0px 0 #dee2e6;
+    -moz-box-shadow: inset 0px 0 #dee2e6;
+    -o-box-shadow: inset 0px 0 #dee2e6;
+    -ms-box-shadow: inset 0px 0 #dee2e6;
+    box-shadow: inset 0px 0 #dee2e6;
+}
+.z-column-button > .z-icon-caret-down, .z-listheader-button > .z-icon-caret-down {
+    padding-top: 0.5rem;
+}
+
+.z-column-content, .z-row-content, .z-group-content, .z-groupfoot-content, .z-footer-content, .z-auxheader-content, .z-listheader-content {
+    line-height: unset!important;
+}
+
+.z-column-content, .z-row-content, .z-group-content, .z-groupfoot-content, .z-footer-content, .z-listheader-content {
+    color: var(--bs-body-color);
+}
+
+.z-paging {
+    background-color: var(--bs-body-bg)!important;
+    color: var(--bs-body-color);
+}
+
+.z-paging-info{
+    padding: 2px 0!important;
+}
+
+.z-grid .z-row-inner, .z-grid .z-cell {
+    background: inherit;
+}
+
+[data-bs-theme="dark"] {
+    .z-paging ul {
+        filter: invert(1);
+    }
+    .z-paging-info{
+        filter: invert(1);
+    }
+}
+
+/* MODAL AND BUSY OVERLAY */
+.z-temp, .z-modal-mask {
+    background: rgba(0, 0, 0, 0.9);
+    opacity: .32;
+    filter: alpha(opacity = 32);
+    z-index: 100!important;
+}
