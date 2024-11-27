@@ -9,4 +9,4 @@ This CSS file aims to eliminate these conflicts, making ZK elements have the Boo
 - The ZK CSS was removed on Windows so that it is transparent.
 - Datebox do not need "form-control" class.
 
-Important: use the ZK Icelue theme for the best experience.
+Important: use the ZK Iceblue theme for the best experience.
